@@ -16,7 +16,7 @@ public class Gato {
     boolean stCastrado;
     String raca;
     
-    //Modificar de acesso + tipo de retorno + nome do metodo ()
+    //Modificador de acesso + tipo de retorno + nome do metodo + ()
     public void miar() {
         System.out.println(nome + " miauuuuuuuuuuuuu");
     }
