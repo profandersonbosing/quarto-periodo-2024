@@ -10,4 +10,9 @@ package br.unipar.calculadora.comissao.models;
  */
 public class Gerente extends Funcionario {
     
+    @Override
+    public String retornaTratamento(){
+        return "Senhor Gerente";
+    }
+    
 }

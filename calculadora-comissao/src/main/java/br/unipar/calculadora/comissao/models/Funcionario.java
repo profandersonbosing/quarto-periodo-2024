@@ -8,7 +8,8 @@ package br.unipar.calculadora.comissao.models;
  *
  * @author andersonbosing
  */
-public class Funcionario {
+//Classe Abstrata
+public abstract class Funcionario {
     
     private int codigo;
     private String nome;
@@ -38,6 +39,6 @@ public class Funcionario {
         this.salario = salario;
     }
     
-    
+    public abstract String retornaTratamento();
     
 }

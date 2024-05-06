@@ -9,5 +9,10 @@ package br.unipar.calculadora.comissao.models;
  * @author andersonbosing
  */
 public class Colaborador extends Funcionario {
+
+    @Override
+    public String retornaTratamento() {
+        return "Senhor Colaborador";
+    }
     
 }

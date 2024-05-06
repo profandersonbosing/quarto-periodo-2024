@@ -7,6 +7,7 @@ package br.unipar.calculadora.comissao;
 import br.unipar.calculadora.comissao.models.CalculadoraComissao;
 import br.unipar.calculadora.comissao.models.Colaborador;
 import br.unipar.calculadora.comissao.models.Diretor;
+import br.unipar.calculadora.comissao.models.Funcionario;
 import br.unipar.calculadora.comissao.models.Gerente;
 
 /**
@@ -32,10 +33,19 @@ public class Main {
         d.setNome("Marcelo");
         d.setSalario(10000);
         
+        //Funcionario p = new Funcionario();
+        //p.setCodigo(4);
+        //p.setNome("Anderson Bosing");
+        //p.setSalario(15.0);
+        
+        
         CalculadoraComissao calc = new CalculadoraComissao();
         calc.calcularComissaoExibir(c);
         calc.calcularComissaoExibir(g);
         calc.calcularComissaoExibir(d);
+        System.out.println(c.retornaTratamento());
+        System.out.println(g.retornaTratamento());
+        System.out.println(d.retornaTratamento());
         
     }
 }

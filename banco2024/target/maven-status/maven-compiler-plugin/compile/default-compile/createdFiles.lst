@@ -1,0 +1,6 @@
+br/unipar/banco2024/Main.class
+br/unipar/banco2024/models/PicPayImp.class
+br/unipar/banco2024/models/Correntista.class
+br/unipar/banco2024/models/Conta.class
+br/unipar/banco2024/interfaces/BancoInterface.class
+br/unipar/banco2024/interfaces/SeguradoraInterface.class

@@ -4,13 +4,9 @@
 
 package br.unipar.heranca;
 
-import br.unipar.heranca.model.herancasimples.Aluno;
-import br.unipar.heranca.model.herancasimples.Pessoa;
-import br.unipar.heranca.model.herancasimples.Professor;
 import br.unipar.heranca.model.polimorfismo.Cachorro;
 import br.unipar.heranca.model.polimorfismo.Peixe;
 import br.unipar.heranca.model.polimorfismo.Respirador;
-import java.util.Date;
 
 public class Heranca {
 
