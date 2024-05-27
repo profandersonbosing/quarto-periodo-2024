@@ -14,11 +14,12 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
     
+    //metodo que retorna uma connection
     public Connection getConnection() throws SQLException  {
         return DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/app", 
-                "unipar", 
-                "unipar123"
+                "jdbc:postgresql://localhost:5432/app", //driver:banco:caminho do banco
+                "unipar", //usuario do banco
+                "unipar123" // senha do banco
         );
     }
     

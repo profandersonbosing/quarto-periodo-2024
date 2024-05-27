@@ -23,18 +23,13 @@ public class PetDoguiPoo {
         try {
             CorService corService = new CorService();
             
+            Cor c = new Cor();
+            c.setDescricao("Violeta");
+            
+            corService.insert(c);
+            
             ArrayList<Cor> resultado = corService.findAll();
-            System.out.println(resultado.toString());
             
-            Cor cor = new Cor();
-            cor.setDescricao("Laranja");
-            cor = corService.insert(cor);
-            System.out.println(cor.toString());
-            resultado = corService.findAll();
-            System.out.println(resultado.toString());
-            
-            corService.delete(cor.getId());
-            resultado = corService.findAll();
             System.out.println(resultado.toString());
             
             

@@ -14,11 +14,14 @@ import java.util.ArrayList;
  *
  * @author andersonbosing
  */
+//Responsavel pela logica de negocio
 public class CorService {
     
     //Insert de uma nova cor
     public Cor insert(Cor cor) throws SQLException, NegocioException {
+        
         validate(cor);
+        
         CorRepository corRepository = new CorRepository();
         cor = corRepository.insert(cor);
         
@@ -27,7 +30,10 @@ public class CorService {
     
     //Update de cor
     public Cor edit(Cor cor) throws SQLException, NegocioException {
+        
         validate(cor);
+        validateUpdate(cor);
+        
         CorRepository corRepository = new CorRepository();
         cor = corRepository.update(cor);
         
@@ -57,22 +63,29 @@ public class CorService {
     //Valida os atributos de Cor
     private void validate(Cor cor) throws NegocioException {
         if (cor.getDescricao() == null) {
-            throw new NegocioException("A descrição da Cor deve ser Informada.");
+            throw new NegocioException("A descrição da Cor deve ser "
+                    + "Informada.");
         }
         if (cor.getDescricao().isBlank()) {
-            throw new NegocioException("A descrição da Cor deve ser Informada.");
+            throw new NegocioException("A descrição da Cor "
+                    + "deve ser Informada.");
         }
-        if (cor.getDescricao().length() <= 5) {
-            throw new NegocioException("A descrição da Cor deve possuir 5 "
-                    + "ou mais caracteres.");
-        }
-        if (cor.getDescricao().length() <= 5) {
-            throw new NegocioException("A descrição da Cor deve possuir 5 "
+        if (cor.getDescricao().length() <= 4) {
+            throw new NegocioException("A descrição da Cor "
+                    + "deve possuir 4 "
                     + "ou mais caracteres.");
         }
         if (cor.getDescricao().length() > 60) {
-            throw new NegocioException("A descrição da Cor não deve possuir "
+            throw new NegocioException("A descrição da Cor "
+                    + "não deve possuir "
                     + "mais do que 60 caracteres");
+        }
+    }
+    
+    private void validateUpdate(Cor cor) throws NegocioException {
+        if (cor.getId() == 0) {
+            throw new NegocioException("Informe um Código Válido "
+                    + "para atualização da cor");
         }
     }
     

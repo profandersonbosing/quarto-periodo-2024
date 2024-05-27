@@ -17,8 +17,11 @@ import java.util.ArrayList;
  *
  * @author andersonbosing
  */
+//Responsavel pelas interações com o banco de dados
+//Table cor
 public class CorRepository {
     
+    //Constantes com os SQLs
     private static final String INSERT = 
             "INSERT INTO COR(DS_COR) VALUES(?)";
     
@@ -43,20 +46,27 @@ public class CorRepository {
         ResultSet rs = null;
         
         try {
-            
+            //Pego a conexão de banco de dados
             conn = new ConnectionFactory().getConnection();
+            //Crio o preparedStatement
             pstmt = conn.prepareStatement(INSERT, 
                     Statement.RETURN_GENERATED_KEYS);
+            //seto os parametros da minha consulta
             pstmt.setString(1, cor.getDescricao());
-            
+            //Executo a query no banco
             pstmt.executeUpdate();
-            
+            //recupera para o resultset o id gerado pelo banco
             rs = pstmt.getGeneratedKeys();
+            //ativa o cursor
             rs.next();
-            
+            //Recupero o id do resultset e atribuo ao objeto cor
             cor.setId(rs.getInt(1));
             
         } finally {
+            //Fecho os objetos de conexão com banco de dados
+            if (rs != null)
+                rs.close();
+            
             if (pstmt != null)
                 pstmt.close();
             
@@ -79,7 +89,7 @@ public class CorRepository {
             ps = conn.prepareStatement(UPDATE);
             ps.setString(1, cor.getDescricao());
             ps.setInt(2, cor.getId());
-            ps.execute();
+            ps.executeUpdate();
 
         } finally {
             if (ps != null)
@@ -106,7 +116,7 @@ public class CorRepository {
             
             rs = pstmt.executeQuery();
             
-            while (rs.next()) {
+            if (rs.next()) {
                retorno = new Cor();
                retorno.setId(rs.getInt("ID"));
                retorno.setDescricao(rs.getString("DS_COR"));
@@ -140,9 +150,10 @@ public class CorRepository {
         try {
             
             conn = new ConnectionFactory().getConnection();
-            
+            //SELECT id, ds_cor FROM cor
             pstmt = conn.prepareStatement(FIND_ALL);
-            
+            //EXecuta a consulta no banco e recupera os resultados
+            //no resultset
             rs = pstmt.executeQuery();
             
             while (rs.next()) {
@@ -150,7 +161,7 @@ public class CorRepository {
                 Cor cor = new Cor();
                 cor.setId(rs.getInt("ID"));
                 cor.setDescricao(rs.getString("DS_COR"));
-                
+                //adiciono no arraylist de retorno
                 retorno.add(cor);
                 
             }
