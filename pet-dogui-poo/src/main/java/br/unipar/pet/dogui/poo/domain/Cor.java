@@ -4,11 +4,22 @@
  */
 package br.unipar.pet.dogui.poo.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  *
  * @author andersonbosing
  */
+@Getter
+@Setter //Annotations 
+@ToString // ToString
+@AllArgsConstructor //Construtor com todos os argumentos
+@NoArgsConstructor //Contrutor vazio
 public class Cor {
-    private Long id;
+    private int id;
     private String descricao;
 }
